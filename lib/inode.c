@@ -1575,7 +1575,6 @@ static int erofs_mkfs_handle_inode(struct erofs_inode *inode)
 
 	trimmed = erofs_trim_for_progressinfo(relpath[0] ? relpath : "/",
 					      sizeof("Processing  ...") - 1);
-	erofs_update_progressinfo("Processing %s ...", trimmed);
 	free(trimmed);
 
 	ret = erofs_scan_file_xattrs(inode);
@@ -1619,7 +1618,6 @@ static int erofs_rebuild_handle_inode(struct erofs_inode *inode,
 
 	trimmed = erofs_trim_for_progressinfo(erofs_fspath(inode->i_srcpath),
 					      sizeof("Processing  ...") - 1);
-	erofs_update_progressinfo("Processing %s ...", trimmed);
 	free(trimmed);
 
 	if (erofs_should_use_inode_extended(inode)) {
