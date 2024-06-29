@@ -33,10 +33,6 @@ jobs:
         if: github.event.inputs.release == 'true' && github.event.inputs.release != 'false' && !cancelled()
         uses: ncipollo/release-action@v1
         with:
-          allowUpdates: true
-          omitBodyDuringUpdate: true
-          removeArtifacts: true
-          token: ${{ secrets.ACCESS_TOKEN }}
           name: ${{ github.event.inputs.version }}
           tag: ${{ github.event.inputs.version }}
           body: This release is built by github-action.
